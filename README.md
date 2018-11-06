@@ -1,5 +1,7 @@
 [![Build Status](https://travis-ci.org/quangngotan95/go-m3u8.svg?branch=master)](https://travis-ci.org/quangngotan95/go-m3u8)
 [![codecov](https://codecov.io/gh/quangngotan95/go-m3u8/branch/master/graph/badge.svg)](https://codecov.io/gh/quangngotan95/go-m3u8)
+[![Go Report Card](https://goreportcard.com/badge/github.com/quangngotan95/go-m3u8)](https://goreportcard.com/report/github.com/quangngotan95/go-m3u8)
+[![GoDoc](https://godoc.org/github.com/quangngotan95/go-m3u8/m3u8?status.svg)](https://godoc.org/github.com/quangngotan95/go-m3u8/m3u8)
 # go-m3u8
 Golang package for m3u8 (ported m3u8 gem https://github.com/sethdeckard/m3u8)
 
@@ -123,4 +125,4 @@ Not all Levels and Profiles can be combined and validation is not currently impl
 6. Create a new Pull Request
 
 ## License
-MIT License - See [LICENSE.txt](https://github.com/quangngotan95/go-m3u8/blob/master/LICENSE) for details
+MIT License - See [LICENSE](https://github.com/quangngotan95/go-m3u8/blob/master/LICENSE) for details
