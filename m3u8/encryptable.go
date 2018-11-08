@@ -5,6 +5,7 @@ import (
 	"strings"
 )
 
+// Encryptable is common representation for KeyItem and SessionKeyItem
 type Encryptable struct {
 	Method            string
 	URI               *string
@@ -13,6 +14,7 @@ type Encryptable struct {
 	KeyFormatVersions *string
 }
 
+// NewEncryptable takes an attributes map and returns an *Encryptable
 func NewEncryptable(attributes map[string]string) *Encryptable {
 	return &Encryptable{
 		Method:            attributes[MethodTag],

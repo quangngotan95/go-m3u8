@@ -14,10 +14,12 @@ type state struct {
 	master      bool
 }
 
+// ReadString parses a text string and returns a playlist
 func ReadString(text string) (*Playlist, error) {
 	return Read(strings.NewReader(text))
 }
 
+// ReadFile reads text from a file and returns a playlist
 func ReadFile(path string) (*Playlist, error) {
 	f, err := ioutil.ReadFile(path)
 	if err != nil {
@@ -26,6 +28,7 @@ func ReadFile(path string) (*Playlist, error) {
 	return Read(bytes.NewReader(f))
 }
 
+// Read reads text from an io.Reader and returns a playlist
 func Read(reader io.Reader) (*Playlist, error) {
 	var buf bytes.Buffer
 	_, err := buf.ReadFrom(reader)
@@ -117,11 +120,11 @@ func parseLine(line string, pl *Playlist, st *state) error {
 			return parseError(line, err)
 		}
 		if st.open {
-			if item, ok := st.currentItem.(*SegmentItem); !ok {
+			item, ok := st.currentItem.(*SegmentItem)
+			if !ok {
 				return parseError(line, ErrSegmentItemInvalid)
-			} else {
-				item.ProgramDateTime = pdt
 			}
+			item.ProgramDateTime = pdt
 		} else {
 			pl.Items = append(pl.Items, pdt)
 		}

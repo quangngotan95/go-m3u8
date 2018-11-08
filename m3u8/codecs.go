@@ -3,17 +3,20 @@ package m3u8
 import "strings"
 
 var (
+	// AudioCodecMap maps audio codec to representation
 	AudioCodecMap = map[string]string{
 		"aac-lc": "mp4a.40.2",
 		"he-aac": "mp4a.40.5",
 		"mp3":    "mp4a.40.34",
 	}
 
+	// BaselineCodecMap maps baseline profile with levels to representation
 	BaselineCodecMap = map[string]string{
 		"3.0": "avc1.66.30",
 		"3.1": "avc1.42001f",
 	}
 
+	// MainCodecMap maps main profile with levels to representation
 	MainCodecMap = map[string]string{
 		"3.0": "avc1.77.30",
 		"3.1": "avc1.4d001f",
@@ -21,6 +24,7 @@ var (
 		"4.1": "avc1.4d0029",
 	}
 
+	// HighCodecMap maps high profile with levels to representation
 	HighCodecMap = map[string]string{
 		"3.0": "avc1.64001e",
 		"3.1": "avc1.64001f",

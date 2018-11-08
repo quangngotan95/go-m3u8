@@ -12,6 +12,7 @@ type ByteRange struct {
 	Start  *int
 }
 
+// NewByteRange parses a text line in playlist file and returns a *ByteRange
 func NewByteRange(text string) (*ByteRange, error) {
 	if text == "" {
 		return nil, nil

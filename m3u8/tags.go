@@ -2,6 +2,7 @@ package m3u8
 
 const (
 	// Item tags
+
 	SessionKeyItemTag    = `#EXT-X-SESSION-KEY`
 	KeyItemTag           = `#EXT-X-KEY`
 	DiscontinuityItemTag = `#EXT-X-DISCONTINUITY`
@@ -17,6 +18,7 @@ const (
 	PlaylistIframeTag    = `#EXT-X-I-FRAME-STREAM-INF`
 
 	// Playlist tags
+
 	HeaderTag                = `#EXTM3U`
 	FooterTag                = `#EXT-X-ENDLIST`
 	TargetDurationTag        = `#EXT-X-TARGETDURATION`
@@ -29,9 +31,11 @@ const (
 	VersionTag               = `#EXT-X-VERSION`
 
 	// ByteRange tags
+
 	ByteRangeTag = "BYTERANGE"
 
 	// Encryptable tags
+
 	MethodTag            = "METHOD"
 	URITag               = "URI"
 	IVTag                = "IV"
@@ -39,6 +43,7 @@ const (
 	KeyFormatVersionsTag = "KEYFORMATVERSIONS"
 
 	// DateRangeItem tags
+
 	IDTag              = "ID"
 	ClassTag           = "CLASS"
 	StartDateTag       = "START-DATE"
@@ -51,15 +56,18 @@ const (
 	EndOnNextTag       = "END-ON-NEXT"
 
 	// PlaybackStart tags
+
 	TimeOffsetTag = "TIME-OFFSET"
 	PreciseTag    = "PRECISE"
 
 	// SessionDataItem tags
+
 	DataIDTag   = "DATA-ID"
 	ValueTag    = "VALUE"
 	LanguageTag = "LANGUAGE"
 
 	// MediaItem tags
+
 	TypeTag            = "TYPE"
 	GroupIDTag         = "GROUP-ID"
 	AssocLanguageTag   = "ASSOC-LANGUAGE"
@@ -72,6 +80,7 @@ const (
 	ChannelsTag        = "CHANNELS"
 
 	/// PlaylistItem tags
+
 	ResolutionTag       = "RESOLUTION"
 	ProgramIDTag        = "PROGRAM-ID"
 	CodecsTag           = "CODECS"
@@ -85,6 +94,7 @@ const (
 	HDCPLevelTag        = "HDCP-LEVEL"
 
 	// Values
+
 	NoneValue = "NONE"
 	YesValue  = "YES"
 	NoValue   = "NO"

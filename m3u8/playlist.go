@@ -1,6 +1,7 @@
 // Package m3u8 provides utilities for parsing and generating m3u8 playlists
 package m3u8
 
+// Item represents an item in a playlist
 type Item interface {
 	String() string
 }
@@ -21,19 +22,6 @@ type Playlist struct {
 	Master                *bool
 }
 
-func NewPlaylist() *Playlist {
-	return &Playlist{
-		Target: 10,
-	}
-}
-
-func NewPlaylistWithItems(items []Item) *Playlist {
-	return &Playlist{
-		Target: 10,
-		Items:  items,
-	}
-}
-
 func (pl *Playlist) String() string {
 	s, err := Write(pl)
 	if err != nil {
@@ -43,10 +31,27 @@ func (pl *Playlist) String() string {
 	return s
 }
 
+// NewPlaylist returns a playlist with default target 10
+func NewPlaylist() *Playlist {
+	return &Playlist{
+		Target: 10,
+	}
+}
+
+// NewPlaylistWithItems returns a playlist with a list of items
+func NewPlaylistWithItems(items []Item) *Playlist {
+	return &Playlist{
+		Target: 10,
+		Items:  items,
+	}
+}
+
+// AppendItem appends an item to the playlist
 func (pl *Playlist) AppendItem(item Item) {
 	pl.Items = append(pl.Items, item)
 }
 
+// IsLive checks if playlist is live (not vod)
 func (pl *Playlist) IsLive() bool {
 	if pl.IsMaster() {
 		return false
@@ -55,6 +60,7 @@ func (pl *Playlist) IsLive() bool {
 	return pl.Live
 }
 
+// IsMaster checks if a playlist is a master playlist
 func (pl *Playlist) IsMaster() bool {
 	if pl.Master != nil {
 		return *pl.Master
@@ -69,6 +75,7 @@ func (pl *Playlist) IsMaster() bool {
 	return plSize > 0
 }
 
+// PlaylistSize returns number of playlist items in a playlist
 func (pl *Playlist) PlaylistSize() int {
 	result := 0
 
@@ -81,6 +88,7 @@ func (pl *Playlist) PlaylistSize() int {
 	return result
 }
 
+// SegmentSize returns number of segment items in a playlist
 func (pl *Playlist) SegmentSize() int {
 	result := 0
 
@@ -93,14 +101,17 @@ func (pl *Playlist) SegmentSize() int {
 	return result
 }
 
+// ItemSize returns number of items in a playlist
 func (pl *Playlist) ItemSize() int {
 	return len(pl.Items)
 }
 
+// IsValid checks if a playlist is valid or not
 func (pl *Playlist) IsValid() bool {
 	return !(pl.PlaylistSize() > 0 && pl.SegmentSize() > 0)
 }
 
+// Duration returns duration of a media playlist
 func (pl *Playlist) Duration() float64 {
 	duration := 0.0
 

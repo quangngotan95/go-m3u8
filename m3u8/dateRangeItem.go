@@ -21,6 +21,7 @@ type DateRangeItem struct {
 	ClientAttributes map[string]string
 }
 
+// NewDateRangeItem parses a text line in playlist and returns a *DateRangeItem
 func NewDateRangeItem(text string) (*DateRangeItem, error) {
 	attributes := ParseAttributes(text)
 	duration, err := parseFloat(attributes, DurationTag)

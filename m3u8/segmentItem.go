@@ -16,6 +16,7 @@ type SegmentItem struct {
 	ByteRange       *ByteRange
 }
 
+// NewSegmentItem parses a text line and returns a *SegmentItem
 func NewSegmentItem(text string) (*SegmentItem, error) {
 	var si SegmentItem
 	line := strings.Replace(text, SegmentItemTag+":", "", -1)

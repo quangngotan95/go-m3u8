@@ -12,6 +12,7 @@ type PlaybackStart struct {
 	Precise    *bool
 }
 
+// NewPlaybackStart parses a text line and returns a *PlaybackStart
 func NewPlaybackStart(text string) (*PlaybackStart, error) {
 	attributes := ParseAttributes(text)
 

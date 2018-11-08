@@ -9,6 +9,7 @@ type MapItem struct {
 	ByteRange *ByteRange
 }
 
+// NewMapItem parses a text line and returns a *MapItem
 func NewMapItem(text string) (*MapItem, error) {
 	attributes := ParseAttributes(text)
 

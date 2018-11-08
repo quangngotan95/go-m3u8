@@ -16,6 +16,7 @@ var (
 	parseRegex = regexp.MustCompile(`([A-z0-9-]+)\s*=\s*("[^"]*"|[^,]*)`)
 )
 
+// ParseAttributes parses a text line in playlist and returns an attributes map
 func ParseAttributes(text string) map[string]string {
 	res := make(map[string]string)
 	value := strings.Replace(text, "\n", "", -1)

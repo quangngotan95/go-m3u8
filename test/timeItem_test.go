@@ -1,10 +1,11 @@
 package test
 
 import (
-	"github.com/quangngotan95/go-m3u8/m3u8"
-	"github.com/stretchr/testify/assert"
 	"testing"
 	"time"
+
+	"github.com/quangngotan95/go-m3u8/m3u8"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestTimeItem_New(t *testing.T) {

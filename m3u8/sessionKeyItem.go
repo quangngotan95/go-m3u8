@@ -7,6 +7,7 @@ type SessionKeyItem struct {
 	Encryptable *Encryptable
 }
 
+// NewSessionKeyItem parses a text line and returns a *SessionKeyItem
 func NewSessionKeyItem(text string) (*SessionKeyItem, error) {
 	attributes := ParseAttributes(text)
 	return &SessionKeyItem{

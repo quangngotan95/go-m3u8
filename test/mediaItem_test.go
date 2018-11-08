@@ -1,9 +1,10 @@
 package test
 
 import (
+	"testing"
+
 	"github.com/quangngotan95/go-m3u8/m3u8"
 	"github.com/stretchr/testify/assert"
-	"testing"
 )
 
 func TestMediaItem_Parse(t *testing.T) {

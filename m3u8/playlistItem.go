@@ -31,6 +31,7 @@ type PlaylistItem struct {
 	Resolution       *Resolution
 }
 
+// NewPlaylistItem parses a text line and returns a *PlaylistItem
 func NewPlaylistItem(text string) (*PlaylistItem, error) {
 	attributes := ParseAttributes(text)
 
@@ -141,6 +142,7 @@ func (pi *PlaylistItem) String() string {
 	return fmt.Sprintf("%s:%s\n%s", PlaylistItemTag, attributesString, pi.URI)
 }
 
+// CodecsString returns the string representation of codecs for a playlist item
 func (pi *PlaylistItem) CodecsString() string {
 	codecsPtr := formatCodecs(pi)
 	if codecsPtr == nil {

@@ -5,6 +5,7 @@ import (
 	"strings"
 )
 
+// Write writes a playlist to a string
 func Write(pl *Playlist) (string, error) {
 	var sb strings.Builder
 

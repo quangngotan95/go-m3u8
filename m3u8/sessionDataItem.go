@@ -13,6 +13,7 @@ type SessionDataItem struct {
 	Language *string
 }
 
+// NewSessionDataItem parses a text line and returns a *SessionDataItem
 func NewSessionDataItem(text string) (*SessionDataItem, error) {
 	attributes := ParseAttributes(text)
 

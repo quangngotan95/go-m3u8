@@ -21,6 +21,7 @@ type MediaItem struct {
 	Channels        *string
 }
 
+// NewMediaItem parses a text line and returns a *MediaItem
 func NewMediaItem(text string) (*MediaItem, error) {
 	attributes := ParseAttributes(text)
 

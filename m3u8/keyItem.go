@@ -7,6 +7,7 @@ type KeyItem struct {
 	Encryptable *Encryptable
 }
 
+// NewKeyItem parses a text line and returns a *KeyItem
 func NewKeyItem(text string) (*KeyItem, error) {
 	attributes := ParseAttributes(text)
 	return &KeyItem{

@@ -15,6 +15,7 @@ type TimeItem struct {
 	Time time.Time
 }
 
+// NewTimeItem parses a text line and returns a *TimeItem
 func NewTimeItem(text string) (*TimeItem, error) {
 	timeString := strings.Replace(text, TimeItemTag+":", "", -1)
 
@@ -34,10 +35,13 @@ func (ti *TimeItem) String() string {
 	return fmt.Sprintf("%s:%s", TimeItemTag, ti.Time.Format(dateTimeFormat))
 }
 
+// FormatTime returns a string in default m3u8 date time format
 func FormatTime(time time.Time) string {
 	return time.Format(dateTimeFormat)
 }
 
+// ParseTime parses a string in default m3u8 date time format
+// and returns time.Time
 func ParseTime(value string) (time.Time, error) {
 	layouts := []string{
 		"2006-01-02T15:04:05.999999999Z0700",
