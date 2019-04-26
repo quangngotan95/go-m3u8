@@ -198,6 +198,8 @@ func parseLine(line string, pl *Playlist, st *state) error {
 		pl.Items = append(pl.Items, ps)
 	case matchTag(line, IndependentSegmentsTag):
 		pl.IndependentSegments = true
+	case matchTag(line, FooterTag):
+		pl.Live = false
 	default:
 		if st.currentItem != nil && st.open {
 			return parseNextLine(line, pl, st)

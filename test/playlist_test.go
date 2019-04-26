@@ -170,3 +170,49 @@ func TestPlaylist_Valid(t *testing.T) {
 
 	assert.False(t, p.IsValid())
 }
+
+func TestPlaylist_PlaylistSize(t *testing.T) {
+	p := m3u8.NewPlaylist()
+	assert.True(t, p.IsValid())
+
+	p.AppendItem(&m3u8.PlaylistItem{
+		ProgramID: pointer.ToString("1"),
+		URI:       "playlist0_url",
+		Bandwidth: 540,
+		Width:     pointer.ToInt(1920),
+		Height:    pointer.ToInt(1080),
+		Codecs:    pointer.ToString("avc"),
+	})
+
+	p.AppendItem(&m3u8.PlaylistItem{
+		ProgramID: pointer.ToString("1"),
+		URI:       "playlist1_url",
+		Bandwidth: 540,
+		Width:     pointer.ToInt(1920),
+		Height:    pointer.ToInt(1080),
+		Codecs:    pointer.ToString("avc"),
+	})
+
+	assert.Equal(t, 2, p.PlaylistSize())
+	pi := p.PlaylistItems()
+	assert.Equal(t, "playlist0_url", pi[0].URI)
+	assert.Equal(t, "playlist1_url", pi[1].URI)
+}
+
+func TestPlaylist_Segments(t *testing.T) {
+	p := &m3u8.Playlist{
+		Items: []m3u8.Item{
+			&m3u8.SegmentItem{Duration: 10.991, Segment: "test_01.ts"},
+			&m3u8.SegmentItem{Duration: 9.891, Segment: "test_02.ts"},
+			&m3u8.SegmentItem{Duration: 10.556, Segment: "test_03.ts"},
+			&m3u8.SegmentItem{Duration: 8.790, Segment: "test_04.ts"},
+		},
+	}
+
+	assert.Equal(t, 4, p.SegmentSize())
+	si := p.SegmentItems()
+	assert.Equal(t, "test_01.ts", si[0].Segment)
+	assert.Equal(t, "test_02.ts", si[1].Segment)
+	assert.Equal(t, 10.556, si[2].Duration)
+	assert.Equal(t, 8.790, si[3].Duration)
+}
