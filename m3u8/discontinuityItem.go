@@ -12,5 +12,5 @@ func NewDiscontinuityItem() (*DiscontinuityItem, error) {
 }
 
 func (di *DiscontinuityItem) String() string {
-	return fmt.Sprintf("%s\n", DiscontinuityItemTag)
+	return fmt.Sprintf("%s", DiscontinuityItemTag)
 }
